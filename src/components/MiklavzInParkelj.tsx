@@ -5,7 +5,7 @@ function MiklavzInParkelj(){
         document.title = "Več o Miklavžu in parklju";
     })
 
-    return <div>
+    return <div data-testid="test1">
         <h1>O Miklavžu in parklju</h1>
         <div>
         Prvi datum, ki si ga premnogi otroci zapomnijo, je 6. december, god sv. Miklavža, kakor pravimo sv. Nikolaju, ki je bil v 4. stoletju škof v mestu Mira v Mali Aziji (današnji Demre v Turčiji). Na predvečer svojega godu hodi ta svetnik – kakor otroci v svoji nedolžni preprostosti verujejo – s svojim spremstvom, angeli in parkeljni, od hiše do hiše in prinaša pridnim otrokom darila, porednim pa šibe. Marsikje god svetega Miklavža porabijo za dan krščanske dobrodelnosti: z materialnimi darovi se spomnijo zapuščenih, revnih in osamljenih otrok. Tudi v naših družinah bi lahko otrokom ob takih priložnostih odpirali srca za potrebe ljudi, ki živijo okrog nas.

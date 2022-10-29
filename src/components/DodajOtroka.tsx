@@ -6,9 +6,11 @@ interface Darilo {
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
+    slika: string;
 }
 
 interface Otrok {
+    id: number;
     ime: string;
     starost: number;
     hisniNaslov: string;
@@ -17,7 +19,8 @@ interface Otrok {
 }
 
 interface DodajOtrokaProps {
-    dodajOtroka: (otrok: Otrok) => any;
+    onAdd: (otrok: Otrok) => any;
+    id: number;
 }
 
 function DodajOtroka(props: DodajOtrokaProps) {
@@ -45,12 +48,12 @@ function DodajOtroka(props: DodajOtrokaProps) {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        props.dodajOtroka({ime: ime, starost: starost, hisniNaslov: hisniNaslov, stPik: stPik, darila:[]});
+        props.onAdd({ id: props.id, ime: ime, starost: starost, hisniNaslov: hisniNaslov, stPik: stPik, darila:[]});
         }
    
     return (
         <form onSubmit = {handleSubmit}>
-            <h3><b>Dodaj otroka:</b></h3>
+            <h3><b>Otrok:</b></h3>
             <label>Ime:
                 <input
                     type="text"
@@ -84,7 +87,7 @@ function DodajOtroka(props: DodajOtrokaProps) {
             </label>
             <br />
             <br />
-            <input type="submit" value="dodaj" />
+            <input type="submit" value="Dodaj" />
         </form>
     );
 }

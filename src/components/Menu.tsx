@@ -7,7 +7,7 @@ interface MenuProps {
 function Menu(props:MenuProps) {
     return(
         <div>
-        <h1>{props.naslov || "Naslov"}</h1>
+        <h1 data-testid="testNaslov">{props.naslov || "Naslov"}</h1>
         <p>Projektna naloga pri predmetu Ogrodja in orodja za razvoj spletnih rešitev.</p>
         </div>
         );

@@ -7,3 +7,8 @@
     position: absolute;
     bottom: 0;
 }
+
+.main-wrapper {
+    position: relative;
+    min-height: 100vh;
+}

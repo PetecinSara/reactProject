@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent } from "react";
-import Darilo from "./Darilo";
+
+import { useParams } from 'react-router-dom';
 
 interface Darilo {
     ime: string;
@@ -7,19 +8,24 @@ interface Darilo {
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
+    slika: string;
 }
 
-interface DodajDarilo {
-    dodajDarilo: (darilo: Darilo) => any;
+interface DariloProps {
+    darila: Darilo[];
+    uredi: (darilo: Darilo, id: number) => any;
 }
 
-function DodajDarilo(props: DodajDarilo) {
-    
+function DariloMore(props: DariloProps){
+    const {id} : any = useParams();
+    const [darilo, setDarilo] = React.useState<Darilo>(props.darila[id]);
+
     const [ime, setIme] = React.useState<string>("");
     const [opis, setOpis] = React.useState<string>("");
     const [pridni, setPridni] = React.useState<boolean>(true);
     const [minStarost, setMinStarost] = React.useState<number>(1);
     const [maxStarost, setMaxStarost] = React.useState<number>(80);
+    const [slika, setSlika] = React.useState<string>("");
 
     const vnosIme = (e: ChangeEvent<HTMLInputElement>) => {
         setIme(e.target.value);
@@ -30,7 +36,7 @@ function DodajDarilo(props: DodajDarilo) {
         }
     
     const vnosPridni = (e: ChangeEvent<HTMLInputElement>) => {
-        setPridni(pridni);
+        setPridni(!pridni);
         }
 
     const vnosMinStarost = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,14 +46,26 @@ function DodajDarilo(props: DodajDarilo) {
     const vnosMaxStarost = (e: ChangeEvent<HTMLInputElement>) => {
         setMaxStarost(Number(e.target.value));
         }
+        
+    const vnosSlika = (e: ChangeEvent<HTMLInputElement>) => {
+        setSlika(e.target.value);
+        }
+
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        props.dodajDarilo({ime: ime, opis: opis, pridni: pridni, minStarost: minStarost, maxStarost: maxStarost});
+        props.uredi({ime: ime, opis: opis, pridni: pridni, minStarost: minStarost, maxStarost: maxStarost, slika: slika}, id);
         }
-   
+
     return (
-        <form onSubmit = {handleSubmit}>
+        <div>
+            <h1>{props.darila[id].ime}</h1>
+            <div>Opis: <b>{props.darila[id].opis}</b></div>
+            <div>Ali je za pridne: <b>{props.darila[id].pridni ? "DA" : "NE"}</b></div>
+            <div>Najmanjša dovoljena starost: <b>{props.darila[id].minStarost}</b></div>
+            <div>Največja dovoljena starost: <b>{props.darila[id].maxStarost}</b></div>
+            <div><img src={props.darila[id].slika}></img></div>  
+            <form onSubmit = {handleSubmit}>
             <h3><b>Dodaj darilo:</b></h3>
             <label>Ime:
                 <input
@@ -69,7 +87,7 @@ function DodajDarilo(props: DodajDarilo) {
                 <div onChange={vnosPridni}>
                 <input
                     type="checkbox"
-                    value="0"
+                    value={"1"}
                     checked={pridni}
                     />
                 </div>
@@ -91,9 +109,18 @@ function DodajDarilo(props: DodajDarilo) {
                     />
             </label>
             <br />
-            <input type="submit" value="dodaj" />
-        </form>
-    );
+            <label>Link do slike:
+                <input
+                    type="text"
+                    value={slika}
+                    onChange={vnosSlika}
+                    />
+            </label>
+            <br />
+            <input type="submit" value="Uredi" />
+        </form>      
+        </div>
+    ) 
 }
 
-export default DodajDarilo;
+export default DariloMore;

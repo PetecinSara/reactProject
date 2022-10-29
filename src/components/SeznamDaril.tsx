@@ -1,7 +1,8 @@
 import React from "react";
+import Darilo from "./Darilo";
+import DodajDarilo from "./DariloDodaj";
 import './Menu.css';
 import { Link } from 'react-router-dom';
-
 
 interface Darilo {
     ime: string;
@@ -9,21 +10,37 @@ interface Darilo {
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
+    slika: string;
 }
 
 interface SeznamDarilProps {
-    darilo : Darilo[];
+    darila : Darilo[];
+    onAdd: (darilo: Darilo) => any
 }
 
 function SeznamDaril(props: SeznamDarilProps) {
    
-    const { darilo } = props;
+    const { darila } = props;
+
+    const handleAdd = (darilo: Darilo) => {
+        props.onAdd(darilo);
+    }
+
+    React.useEffect(() => {
+        document.title = "Seznam daril";
+    }, [darila])
 
     return (
         <div>
             <h1>Seznam daril</h1>
-            {darilo.map((e, i) => (
-                <Link to={`/darilo/` + i}><p key={i}>{e.ime}</p></Link>))}
+            <ul>
+                {darila.map((e, i) => (
+                    <Link key={i} to={`/darilo/${i}`}><Darilo ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br /></Link>
+                    ))}
+            </ul>
+            <div>
+                <DodajDarilo id={darila.length} onAdd={handleAdd} />
+            </div>
         </div>
     )
 }
