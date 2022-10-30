@@ -1,0 +1,14 @@
+.noga {
+    background-color: #333;
+    width: 100%;
+    color: grey;
+    text-align: center;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.main-wrapper {
+    position: relative;
+    min-height: 100vh;
+}
