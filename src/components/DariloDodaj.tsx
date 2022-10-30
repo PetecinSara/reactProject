@@ -74,7 +74,7 @@ function DariloDodaj(props: DariloDodajProps) {
             <br />
             <label>Pridni:
                 <div onChange={vnosPridni}>
-                <input
+                <input  
                     type="checkbox"
                     value={"1"}
                     defaultChecked={true}
