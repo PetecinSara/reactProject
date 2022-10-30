@@ -77,6 +77,7 @@ function DariloDodaj(props: DariloDodajProps) {
                 <input
                     type="checkbox"
                     value={"1"}
+                    defaultChecked={true}
                     checked={pridni}
                     />
                 </div>

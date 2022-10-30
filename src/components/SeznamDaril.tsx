@@ -1,5 +1,5 @@
 import React from "react";
-import Darilo from "./Darilo";
+import Darilo1 from "./Darilo";
 import DodajDarilo from "./DariloDodaj";
 import './Menu.css';
 import { Link } from 'react-router-dom';
@@ -35,7 +35,7 @@ function SeznamDaril(props: SeznamDarilProps) {
             <h1>Seznam daril</h1>
             <ul>
                 {darila.map((e, i) => (
-                    <Link key={i} to={`/darilo/${i}`}><Darilo ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br /></Link>
+                    <Link key={i} to={`/darilo/${i}`}><Darilo1 ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br /></Link>
                     ))}
             </ul>
             <div>

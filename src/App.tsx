@@ -3,16 +3,14 @@ import './App.css';
 import Nav from './components/Nav'
 import Menu from './components/Menu';
 import Noga from './components/Noga';
-import Darilo from './components/Darilo';
 import SeznamOtrok from './components/SeznamOtrok';
 import SeznamDaril from './components/SeznamDaril';
-import DariloDodaj from './components/DariloDodaj';
 import MiklavzInParkelj from './components/MiklavzInParkelj';
 import OtrokMore from './components/OtrokMore';
 import DariloMore from './components/DariloMore';
 import SeznamZaDostavo from './components/SeznamZaDostavo';
 
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 interface Darilo1 {
   ime: string;

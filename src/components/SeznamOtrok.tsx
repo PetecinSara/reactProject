@@ -1,5 +1,5 @@
 import React from "react";
-import Otrok from "./Otrok";
+import Otrok1 from "./Otrok";
 import DodajOtroka from './DodajOtroka';
 
 import { Link } from 'react-router-dom';
@@ -44,13 +44,13 @@ function SeznamOtrok(props: SeznamOtrokProps) {
             <h3>Pridni otroci</h3>
             <ul>
                 {otroci.filter(o => o.stPik >= 5).map((e, i) => (
-                    <Link key={i} to={`/otrok/${e.id}`}><Otrok id={e.id} ime={e.ime} starost={e.starost} hisniNaslov={e.hisniNaslov} stPik={e.stPik} darila={e.darila} /><br /></Link>
+                    <Link key={i} to={`/otrok/${e.id}`}><Otrok1 id={e.id} ime={e.ime} starost={e.starost} hisniNaslov={e.hisniNaslov} stPik={e.stPik} darila={e.darila} /><br /></Link>
                     ))}
             </ul>
             <h3>Poredni otroci</h3>
             <ul>
                 {otroci.filter(o => o.stPik < 5).map((e, i) => (
-                    <Link key={i} to={`/otrok/${e.id}`}><Otrok id={e.id} ime={e.ime} starost={e.starost} hisniNaslov={e.hisniNaslov} stPik={e.stPik} darila={e.darila} /><br /></Link>
+                    <Link key={i} to={`/otrok/${e.id}`}><Otrok1 id={e.id} ime={e.ime} starost={e.starost} hisniNaslov={e.hisniNaslov} stPik={e.stPik} darila={e.darila} /><br /></Link>
                     ))}
             </ul>
             </div>

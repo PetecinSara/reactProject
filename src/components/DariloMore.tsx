@@ -18,7 +18,6 @@ interface DariloProps {
 
 function DariloMore(props: DariloProps){
     const {id} : any = useParams();
-    const [darilo, setDarilo] = React.useState<Darilo>(props.darila[id]);
 
     const [ime, setIme] = React.useState<string>("");
     const [opis, setOpis] = React.useState<string>("");
@@ -64,7 +63,7 @@ function DariloMore(props: DariloProps){
             <div>Ali je za pridne: <b>{props.darila[id].pridni ? "DA" : "NE"}</b></div>
             <div>Najmanjša dovoljena starost: <b>{props.darila[id].minStarost}</b></div>
             <div>Največja dovoljena starost: <b>{props.darila[id].maxStarost}</b></div>
-            <div><img src={props.darila[id].slika}></img></div>  
+            <div><img src={props.darila[id].slika} alt=""></img></div>  
             <form onSubmit = {handleSubmit}>
             <h3><b>Dodaj darilo:</b></h3>
             <label>Ime:

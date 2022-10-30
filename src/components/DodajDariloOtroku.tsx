@@ -1,5 +1,4 @@
 import React, { FormEvent } from "react";
-import Darilo from "./Darilo";
 
 interface Darilo {
     ime: string;

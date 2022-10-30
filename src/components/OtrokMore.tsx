@@ -1,5 +1,5 @@
-import React, { FormEvent } from "react";
-import Darilo from "./Darilo";
+import React from "react";
+import Darilo1 from "./Darilo";
 import DodajDariloOtroku from "./DodajDariloOtroku";
 
 import { useParams } from 'react-router-dom';
@@ -32,7 +32,6 @@ interface OtrokProps {
 
 function OtrokMore(props: OtrokProps){
     const {id} : any = useParams();
-    const { otroci } = props;
     const { darila } = props;
 
     const [otrok, setOtrok] = React.useState<Otrok>(props.otroci[id]);
@@ -75,9 +74,9 @@ function OtrokMore(props: OtrokProps){
             <div>
             <ul>
                 {darila.filter(o => (o.minStarost<=otrok.starost) && (otrok.starost<= o.maxStarost) && 
-                ((o.pridni == true && otrok.stPik >= 5)|| (o.pridni == false && otrok.stPik < 5))
+                ((o.pridni === true && otrok.stPik >= 5)|| (o.pridni === false && otrok.stPik < 5))
                 ).map((e, i) => (
-                <div><Darilo ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br />
+                <div><Darilo1 ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br />
                 <DodajDariloOtroku darilo={e} otrok={otrok} id={i} dodajDariloZaDostavo={dodajDariloZaDostavo} zbrisiDarilo={zbrisiDarilo}/>
                 </div>
                 ))}
