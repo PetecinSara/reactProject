@@ -35,7 +35,7 @@ function SeznamZaDostavo(props: SeznamZaDostavoProps){
             <h3>Seznam za dostavo</h3>
             <ul>
                 {props.zaDostavo.map((e) => (
-                    <p><li>Ime otroka: {e.otr.ime} darilo: {e.dar.ime}</li><br /></p>
+                    <p><li>Ime otroka: {e.otr.ime} darilo: {e.dar.opis}</li><br /></p>
                     ))}
             </ul>
         </div>

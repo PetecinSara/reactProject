@@ -43,13 +43,13 @@ function SeznamOtrok(props: SeznamOtrokProps) {
             <div>
             <h3>Pridni otroci</h3>
             <ul>
-                {otroci.filter(o => o.stPik >= 5).map((e, i) => (
+                {otroci.filter(o => o.stPik < 5).map((e, i) => (
                     <Link key={i} to={`/otrok/${e.id}`}><Otrok1 id={e.id} ime={e.ime} starost={e.starost} hisniNaslov={e.hisniNaslov} stPik={e.stPik} darila={e.darila} /><br /></Link>
                     ))}
             </ul>
             <h3>Poredni otroci</h3>
             <ul>
-                {otroci.filter(o => o.stPik < 5).map((e, i) => (
+                {otroci.filter(o => o.stPik >= 5).map((e, i) => (
                     <Link key={i} to={`/otrok/${e.id}`}><Otrok1 id={e.id} ime={e.ime} starost={e.starost} hisniNaslov={e.hisniNaslov} stPik={e.stPik} darila={e.darila} /><br /></Link>
                     ))}
             </ul>
