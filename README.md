@@ -13,12 +13,11 @@ Aplikacija omogoča pregled osnovnih informacij o Miklavžu in Parklju ter sezna
 ## Funkcionalnosti
 
 - **Stran "O nas"**
-- **Seznam otrok**
-- **Dodajanje otrok na seznam pridnih in porednih otrok**
+- **Seznam pridnih in porednih otrok in dodajanje otrok**
 - **Dodeljevanje črnih pik otrokom**
-- **Seznam daril**
+- **Seznam daril in dodajanje daril na seznam**
 - **Posodobitev seznama daril**
-- **Seznam daril za dostavo**
+- **Seznam daril za dostavo in dodajanje daril za dostavo**
 
 
 ## Namestitev
