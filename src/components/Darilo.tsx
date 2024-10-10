@@ -9,7 +9,7 @@ interface DariloProps {
 }
 
 function Darilo(props: DariloProps) {
-    return <li data-testid="test2">{props.ime}</li>;
+    return <li data-testid="test2">{props.opis}</li>;
 }
 
 export default Darilo;

@@ -23,7 +23,6 @@ interface DodajDariloOtrokuProps {
     otrok: Otrok;
     id: number;
     dodajDariloZaDostavo: (darilo: Darilo, otrok: Otrok) => any;
-    zbrisiDarilo: (darilo: Darilo, id: number) => any;
 }
 
 function DodajDariloOtroku(props: DodajDariloOtrokuProps){
@@ -31,12 +30,6 @@ function DodajDariloOtroku(props: DodajDariloOtrokuProps){
     const dodajDariloOtroku = (e: FormEvent) =>{
         e.preventDefault();
         props.dodajDariloZaDostavo(props.darilo, props.otrok);
-        zbrisiDariloOtroku(e);
-    }
-
-    const zbrisiDariloOtroku = (e: FormEvent) =>{
-        e.preventDefault();
-        props.zbrisiDarilo(props.darilo, props.id);
     }
 
     return (

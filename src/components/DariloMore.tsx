@@ -58,8 +58,7 @@ function DariloMore(props: DariloProps){
 
     return (
         <div>
-            <h1>{props.darila[id].ime}</h1>
-            <div>Opis: <b>{props.darila[id].opis}</b></div>
+            <h1>{props.darila[id].opis}</h1>
             <div>Ali je za pridne: <b>{props.darila[id].pridni ? "DA" : "NE"}</b></div>
             <div>Najmanjša dovoljena starost: <b>{props.darila[id].minStarost}</b></div>
             <div>Največja dovoljena starost: <b>{props.darila[id].maxStarost}</b></div>

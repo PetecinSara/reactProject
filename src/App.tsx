@@ -62,12 +62,6 @@ function App() {
     setZaDostavo(d);
   }
 
-   const zbrisiDarilo = (darilo: Darilo1, id: number) => {
-     let d = Array.from(darila);
-     d.splice(id, 1);
-     setDarila(d);
-   }
-
    const urediDarilo = (darilo: Darilo1, id: number) => {
     let d = Array.from(darila);
     d.splice(id, 1);
@@ -90,7 +84,7 @@ function App() {
             <SeznamOtrok onAdd={dodajOtroka} otroci={otroci} />
           </Route>
           <Route path="/otrok/:id">
-            <OtrokMore otroci={otroci} darila={darila} onChange={handleMoreChangeOtroci} dodajDarilo={dodajZaDostavo} zbrisiDarilo={zbrisiDarilo} />
+            <OtrokMore otroci={otroci} darila={darila} onChange={handleMoreChangeOtroci} dodajDarilo={dodajZaDostavo} />
           </Route>
           <Route path="/seznamDaril">
             <SeznamDaril onAdd={dodajDarilo} darila={darila}/>

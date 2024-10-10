@@ -27,7 +27,6 @@ interface OtrokProps {
     darila : Darilo[];
     onChange: (otroci: Otrok[]) => any;
     dodajDarilo: (otrok:Otrok, darilo: Darilo) => any;
-    zbrisiDarilo: (darilo: Darilo, id:number) => any;
 }
 
 function OtrokMore(props: OtrokProps){
@@ -38,10 +37,6 @@ function OtrokMore(props: OtrokProps){
 
     const dodajDariloZaDostavo = (darilo: Darilo, otrok: Otrok) =>{
         props.dodajDarilo(otrok, darilo);
-    }
-
-    const zbrisiDarilo = (darilo: Darilo, id: number) =>{
-        props.zbrisiDarilo(darilo, id);
     }
 
     const handleElementClick = (newStPik : number) => {
@@ -74,10 +69,10 @@ function OtrokMore(props: OtrokProps){
             <div>
             <ul>
                 {darila.filter(o => (o.minStarost<=otrok.starost) && (otrok.starost<= o.maxStarost) && 
-                ((o.pridni === true && otrok.stPik >= 5)|| (o.pridni === false && otrok.stPik < 5))
+                ((o.pridni === true && otrok.stPik < 5)|| (o.pridni === false && otrok.stPik >= 5))
                 ).map((e, i) => (
                 <div><Darilo1 ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br />
-                <DodajDariloOtroku darilo={e} otrok={otrok} id={i} dodajDariloZaDostavo={dodajDariloZaDostavo} zbrisiDarilo={zbrisiDarilo}/>
+                <DodajDariloOtroku darilo={e} otrok={otrok} id={i} dodajDariloZaDostavo={dodajDariloZaDostavo} />
                 </div>
                 ))}
             </ul>
