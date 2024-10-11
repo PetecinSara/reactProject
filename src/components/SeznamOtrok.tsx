@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import './Menu.css';
 interface Darilo {
     ime: string;
-    opis: string;
     pridni: boolean;
     minStarost: number;
     maxStarost: number;

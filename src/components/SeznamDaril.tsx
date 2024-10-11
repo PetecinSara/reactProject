@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 interface Darilo {
     ime: string;
-    opis: string;
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
@@ -35,7 +34,7 @@ function SeznamDaril(props: SeznamDarilProps) {
             <h1>Seznam daril</h1>
             <ul>
                 {darila.map((e, i) => (
-                    <Link key={i} to={`/darilo/${i}`}><Darilo1 ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br /></Link>
+                    <Link key={i} to={`/darilo/${i}`}><Darilo1 ime={e.ime} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br /></Link>
                     ))}
             </ul>
             <div>

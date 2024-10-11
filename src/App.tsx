@@ -14,7 +14,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 interface Darilo1 {
   ime: string;
-  opis: string;
   pridni: boolean;
   minStarost: number;
   maxStarost: number;

@@ -2,7 +2,6 @@ import React, { ChangeEvent, FormEvent } from 'react';
 
 interface Darilo {
     ime: string;
-    opis: string;
     pridni: boolean;
     minStarost: number;
     maxStarost: number;

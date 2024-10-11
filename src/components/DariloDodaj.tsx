@@ -2,7 +2,6 @@ import React, { ChangeEvent, FormEvent } from "react";
 
 interface Darilo {
     ime: string;
-    opis: string;
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
@@ -17,7 +16,6 @@ interface DariloDodajProps {
 function DariloDodaj(props: DariloDodajProps) {
     
     const [ime, setIme] = React.useState<string>("");
-    const [opis, setOpis] = React.useState<string>("");
     const [pridni, setPridni] = React.useState<boolean>(true);
     const [minStarost, setMinStarost] = React.useState<number>(1);
     const [maxStarost, setMaxStarost] = React.useState<number>(80);
@@ -25,10 +23,6 @@ function DariloDodaj(props: DariloDodajProps) {
 
     const vnosIme = (e: ChangeEvent<HTMLInputElement>) => {
         setIme(e.target.value);
-        }
-
-    const vnosOpis = (e: ChangeEvent<HTMLInputElement>) => {
-        setOpis(e.target.value);
         }
     
     const vnosPridni = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +44,7 @@ function DariloDodaj(props: DariloDodajProps) {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        props.onAdd({ime: ime, opis: opis, pridni: pridni, minStarost: minStarost, maxStarost: maxStarost, slika: slika});
+        props.onAdd({ime: ime, pridni: pridni, minStarost: minStarost, maxStarost: maxStarost, slika: slika});
         }
 
     return (
@@ -61,14 +55,6 @@ function DariloDodaj(props: DariloDodajProps) {
                     type="text"
                     value={ime}
                     onChange={vnosIme}
-                    />
-            </label>
-            <br />
-            <label>Opis:
-                <input
-                    type="text"
-                    value={opis}
-                    onChange={vnosOpis}
                     />
             </label>
             <br />
@@ -107,7 +93,7 @@ function DariloDodaj(props: DariloDodajProps) {
                     />
             </label>
             <br />
-            <input type="submit" value="dodaj" />
+            <input type="submit" value="Dodaj" />
         </form>
     );
 }

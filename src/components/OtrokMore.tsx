@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 
 interface Darilo {
     ime: string;
-    opis: string;
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
@@ -71,7 +70,7 @@ function OtrokMore(props: OtrokProps){
                 {darila.filter(o => (o.minStarost<=otrok.starost) && (otrok.starost<= o.maxStarost) && 
                 ((o.pridni === true && otrok.stPik < 5)|| (o.pridni === false && otrok.stPik >= 5))
                 ).map((e, i) => (
-                <div><Darilo1 ime={e.ime} opis={e.opis} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br />
+                <div><Darilo1 ime={e.ime} pridni={e.pridni} minStarost={e.minStarost} maxStarost={e.maxStarost} slika={e.slika} /><br />
                 <DodajDariloOtroku darilo={e} otrok={otrok} id={i} dodajDariloZaDostavo={dodajDariloZaDostavo} />
                 </div>
                 ))}

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 interface Darilo {
     ime: string;
-    opis: string;
     pridni: boolean;
     minStarost: number;
     maxStarost: number;
@@ -20,7 +19,6 @@ function DariloMore(props: DariloProps){
     const {id} : any = useParams();
 
     const [ime, setIme] = React.useState<string>("");
-    const [opis, setOpis] = React.useState<string>("");
     const [pridni, setPridni] = React.useState<boolean>(true);
     const [minStarost, setMinStarost] = React.useState<number>(1);
     const [maxStarost, setMaxStarost] = React.useState<number>(80);
@@ -28,10 +26,6 @@ function DariloMore(props: DariloProps){
 
     const vnosIme = (e: ChangeEvent<HTMLInputElement>) => {
         setIme(e.target.value);
-        }
-
-    const vnosOpis = (e: ChangeEvent<HTMLInputElement>) => {
-        setOpis(e.target.value);
         }
     
     const vnosPridni = (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,12 +47,12 @@ function DariloMore(props: DariloProps){
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        props.uredi({ime: ime, opis: opis, pridni: pridni, minStarost: minStarost, maxStarost: maxStarost, slika: slika}, id);
+        props.uredi({ime: ime, pridni: pridni, minStarost: minStarost, maxStarost: maxStarost, slika: slika}, id);
         }
 
     return (
         <div>
-            <h1>{props.darila[id].opis}</h1>
+            <h1>{props.darila[id].ime}</h1>
             <div>Ali je za pridne: <b>{props.darila[id].pridni ? "DA" : "NE"}</b></div>
             <div>Najmanjša dovoljena starost: <b>{props.darila[id].minStarost}</b></div>
             <div>Največja dovoljena starost: <b>{props.darila[id].maxStarost}</b></div>
@@ -70,14 +64,6 @@ function DariloMore(props: DariloProps){
                     type="text"
                     value={ime}
                     onChange={vnosIme}
-                    />
-            </label>
-            <br />
-            <label>Opis:
-                <input
-                    type="text"
-                    value={opis}
-                    onChange={vnosOpis}
                     />
             </label>
             <br />
